@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aima Support Hub - Get help with eva and Aima products">
+    <meta name="keywords" content="support, help, eva, aima, documentation">
+    <title>Aima Support Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf8f3;
+            color: #2d2d2d;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #faf8f3;
+            border-bottom: 1px solid #e5e0d5;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #2d2d2d;
+            font-weight: 600;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #2d2d2d;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f97316;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #faf8f3 0%, #f5f0e8 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Georgia', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2d2d2d;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #f97316;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #ea580c;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .support-card {
+            background: white;
+            border: 1px solid #e5e0d5;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .support-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .support-card h3 {
+            font-family: 'Georgia', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #2d2d2d;
+        }
+
+        .support-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .support-card a {
+            color: #f97316;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .support-card a:hover {
+            color: #ea580c;
+        }
+
+        .faq-section {
+            background-color: white;
+            border: 1px solid #e5e0d5;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e0d5;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-item h4 {
+            color: #2d2d2d;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: #666;
+            display: none;
+        }
+
+        .faq-item.active p {
+            display: block;
+        }
+
+        footer {
+            background-color: #2d2d2d;
+            color: #faf8f3;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: #f97316;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo">
+                <span style="font-size: 1.5rem;">🎯</span>
+                <span>Aima Support</span>
+            </a>
+            <nav>
+                <a href="https://useaima.com">Main Site</a>
+                <a href="https://blog.useaima.com">Blog</a>
+                <a href="https://eva.useaima.com">Eva Product</a>
+                <a href="mailto:help@useaima.com">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>How Can We Help?</h1>
+                <p>Find answers to common questions, explore documentation, and get support for eva and Aima products.</p>
+                <a href="mailto:help@useaima.com" class="cta-button">Contact Support</a>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="support-grid">
+                <div class="support-card">
+                    <h3>📚 Documentation</h3>
+                    <p>Comprehensive guides and tutorials for using eva and Aima products.</p>
+                    <a href="mailto:help@useaima.com?subject=Documentation Request">Request Documentation</a>
+                </div>
+
+                <div class="support-card">
+                    <h3>❓ FAQ</h3>
+                    <p>Find answers to frequently asked questions about our products and services.</p>
+                    <a href="#faq">View FAQ</a>
+                </div>
+
+                <div class="support-card">
+                    <h3>🐛 Report Issues</h3>
+                    <p>Found a bug or experiencing an issue? Let us know and we'll help.</p>
+                    <a href="mailto:help@useaima.com?subject=Bug Report">Report Issue</a>
+                </div>
+
+                <div class="support-card">
+                    <h3>💡 Feature Requests</h3>
+                    <p>Have an idea to improve eva? We'd love to hear your suggestions.</p>
+                    <a href="mailto:help@useaima.com?subject=Feature Request">Submit Idea</a>
+                </div>
+
+                <div class="support-card">
+                    <h3>🔐 Security</h3>
+                    <p>Learn about our security practices and data protection measures.</p>
+                    <a href="https://useaima.com/security">Security Info</a>
+                </div>
+
+                <div class="support-card">
+                    <h3>📞 Contact Us</h3>
+                    <p>Need immediate assistance? Reach out to our support team directly.</p>
+                    <a href="mailto:help@useaima.com">Email Support</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="faq-section" id="faq">
+                <h2 style="font-family: 'Georgia', serif; font-size: 2rem; margin-bottom: 2rem; color: #2d2d2d;">Frequently Asked Questions</h2>
+
+                <div class="faq-item active">
+                    <h4>What is eva?</h4>
+                    <p>Eva is a comprehensive financial assistant that helps you track spending, analyze financial behavior, and achieve your financial goals through intelligent insights and real-time anomaly detection.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How do I get started with eva?</h4>
+                    <p>Visit eva.useaima.com to create an account and begin your financial journey. Our onboarding process will guide you through setup and help you connect your financial accounts.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is my data secure with eva?</h4>
+                    <p>Yes. We use industry-standard encryption and security practices to protect your financial data. Your privacy is our top priority. Learn more at useaima.com/security.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How can I contact support?</h4>
+                    <p>You can reach our support team at help@useaima.com. We typically respond within 24 hours. You can also submit feedback directly through the eva app.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What payment methods do you accept?</h4>
+                    <p>We accept all major credit cards, debit cards, and digital payment methods. Billing is handled securely through our payment processor.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I cancel my subscription?</h4>
+                    <p>Yes, you can cancel anytime from your account settings. Your data will be retained for 30 days in case you want to reactivate.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Aima. All rights reserved.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                <a href="https://useaima.com/privacy">Privacy Policy</a> | 
+                <a href="https://useaima.com/terms">Terms of Service</a> | 
+                <a href="https://useaima.com/security">Security</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-item h4').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "aima-support",
+  "version": "1.0.0",
+  "description": "Aima Support Hub - Help center and documentation",
+  "private": true,
+  "scripts": {
+    "dev": "npx http-server -p 3000 -o",
+    "build": "echo 'Static site ready for deployment'",
+    "start": "npx http-server"
+  },
+  "keywords": [
+    "support",
+    "help",
+    "documentation",
+    "eva",
+    "aima"
+  ],
+  "author": "Aima Team",
+  "license": "MIT"
+}
