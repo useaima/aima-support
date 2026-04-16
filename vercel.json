@@ -1,12 +1,21 @@
 {
   "version": 2,
-  "buildCommand": "echo 'Static site - no build needed'",
   "outputDirectory": ".",
   "public": true,
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "src": "/.*",
+      "methods": ["GET", "HEAD"],
+      "dest": "/index.html",
+      "headers": {
+        "Cache-Control": "public, max-age=3600, s-maxage=3600"
+      }
+    },
+    {
+      "src": "/index.html",
+      "headers": {
+        "Cache-Control": "public, max-age=0, s-maxage=3600, must-revalidate"
+      }
     }
   ]
 }
