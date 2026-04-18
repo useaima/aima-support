@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "npx http-server -p 3000 -o",
-    "build": "echo 'Static site ready for deployment'",
+    "build": "node build.mjs",
     "start": "npx http-server"
   },
   "keywords": [
