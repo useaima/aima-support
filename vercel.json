@@ -2,7 +2,8 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/articles/:slug", "destination": "/index.html" },
+    { "source": "/articles", "destination": "/index.html" },
+    { "source": "/articles/(.*)", "destination": "/index.html" },
     { "source": "/", "destination": "/index.html" }
   ]
 }
