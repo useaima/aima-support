@@ -1,69 +1,15 @@
-# Aima Support Hub
+# EVA Support Help Center
 
-Official support documentation and help center for Aima and eva.
+This folder is the source package for the separate `aima-support` repo and its Vercel project at `support.useaima.com`.
 
-## Quick Links
+## What is included
+- `index.html`: support shell with directory + article views
+- `styles.css`: static responsive styling
+- `app.js`: client-side routing, search, and article rendering
+- `data.json`: help-center article content
+- `vercel.json`: rewrite rules so `/articles/<id>` loads directly on Vercel
 
-- [Main Site](https://useaima.com)
-- [Blog](https://blog.useaima.com)
-- [Eva Product](https://eva.useaima.com)
+## Deployment target
+Copy these files into the existing `aima-support` repo root, commit there, and deploy through the existing `aima-support` Vercel project.
 
-## Getting Help
-
-Visit [support.useaima.com](https://support.useaima.com) for:
-
-- **Product Documentation**: Comprehensive guides for using eva
-- **FAQ & Troubleshooting**: Common questions and solutions
-- **Contact Support**: Reach the team directly for product questions
-- **Feature Requests**: Share your ideas and feedback
-- **Community**: Connect with other users and the Aima team
-
-## Support Categories
-
-### Eva Product Support
-- Getting started with eva
-- Spending analysis and insights
-- Anomaly detection features
-- Financial goal tracking
-- Account management
-
-### Account & Billing
-- Subscription management
-- Payment methods
-- Account settings
-- Data privacy and security
-
-### Technical Issues
-- App crashes and errors
-- Sync problems
-- Performance issues
-- Integration questions
-
-### General Questions
-- Product features
-- Pricing and plans
-- Data handling
-- Company information
-
-## Contact Us
-
-- **Email**: help@useaima.com
-- **Support Hub**: support.useaima.com
-- **Response Time**: We typically respond within 24 hours
-
-## Contributing
-
-Found an issue or have a suggestion? We'd love to hear from you!
-
-Please reach out through our support channels or submit feedback directly in the app.
-
-## Privacy & Security
-
-Your data is important to us. Learn more about our:
-- [Privacy Policy](https://useaima.com/privacy)
-- [Terms of Service](https://useaima.com/terms)
-- [Security Practices](https://useaima.com/security)
-
----
-
-**Last Updated**: April 15, 2026
+This stays static on purpose so the support site remains fast, cheap, and easy to extend without coupling it to EVA backend releases.
