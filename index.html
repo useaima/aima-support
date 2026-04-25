@@ -17,7 +17,7 @@
           <input id="search" type="search" placeholder="Search for help articles" aria-label="Search help articles" />
           <button id="clearSearch" type="button">Clear</button>
         </div>
-        <p class="hero__tip">Need direct help? Email support@useaima.com and include your EVA account email.</p>
+        <p class="hero__tip" id="supportEmailTip">Need direct help? Email support@useaima.com and include your EVA account email.</p>
       </div>
     </header>
 
@@ -50,6 +50,40 @@
           <a href="https://eva.useaima.com">Open EVA</a>
           <a href="mailto:support@useaima.com">Contact support</a>
         </div>
+      </section>
+
+      <section class="contact-panel" aria-labelledby="contactPanelTitle">
+        <div class="contact-panel__intro">
+          <p class="contact-panel__eyebrow">Direct help</p>
+          <h2 id="contactPanelTitle">Need a person to look into your issue?</h2>
+          <p id="supportFormLead">
+            Send a support request and the aima team will triage it from the shared support inbox.
+          </p>
+        </div>
+        <form id="supportForm" class="support-form">
+          <div class="support-form__grid">
+            <label>
+              <span>Name</span>
+              <input id="supportName" name="name" type="text" required placeholder="Your name" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input id="supportEmail" name="email" type="email" required placeholder="you@example.com" />
+            </label>
+          </div>
+          <label>
+            <span>Topic</span>
+            <input id="supportTopic" name="topic" type="text" required placeholder="What do you need help with?" />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea id="supportMessage" name="message" rows="5" required placeholder="Share enough detail for the team to help quickly."></textarea>
+          </label>
+          <div class="support-form__actions">
+            <button id="supportSubmit" type="submit">Send support request</button>
+            <p id="supportFormStatus" class="support-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
       </section>
     </main>
 

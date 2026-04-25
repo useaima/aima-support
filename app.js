@@ -11,8 +11,23 @@ const articleTitle = document.getElementById("articleTitle");
 const articleSummary = document.getElementById("articleSummary");
 const articleAnswer = document.getElementById("articleAnswer");
 const backToDirectory = document.getElementById("backToDirectory");
+const supportEmailTip = document.getElementById("supportEmailTip");
+const supportForm = document.getElementById("supportForm");
+const supportFormStatus = document.getElementById("supportFormStatus");
+const supportFormLead = document.getElementById("supportFormLead");
+const supportSubmit = document.getElementById("supportSubmit");
+const supportName = document.getElementById("supportName");
+const supportEmail = document.getElementById("supportEmail");
+const supportTopic = document.getElementById("supportTopic");
+const supportMessage = document.getElementById("supportMessage");
+
+const SHARED_PUBLIC_API = "https://blog.useaima.com/api/public";
 
 let supportData = null;
+let sharedSettings = {
+  supportEmail: "help@useaima.com",
+  supportUrl: "https://support.useaima.com",
+};
 
 function getArticlePath(articleId) {
   return `/articles/${articleId}`;
@@ -156,6 +171,73 @@ function openArticle(articleId) {
   renderRoute();
 }
 
+function updateSharedSupportUi() {
+  if (supportEmailTip) {
+    supportEmailTip.textContent = `Need direct help? Email ${sharedSettings.supportEmail} and include your EVA account email.`;
+  }
+
+  if (supportFormLead) {
+    supportFormLead.textContent = `Send a support request and the aima team will triage it from the shared support inbox. You can also email ${sharedSettings.supportEmail} directly.`;
+  }
+}
+
+async function loadSharedSettings() {
+  try {
+    const response = await fetch(`${SHARED_PUBLIC_API}/settings`);
+    const payload = await response.json();
+    if (response.ok && payload?.settings) {
+      sharedSettings = {
+        ...sharedSettings,
+        ...payload.settings,
+      };
+      updateSharedSupportUi();
+    }
+  } catch (error) {
+    updateSharedSupportUi();
+  }
+}
+
+async function handleSupportSubmit(event) {
+  event.preventDefault();
+  supportFormStatus.textContent = "";
+  supportFormStatus.className = "support-status";
+  supportSubmit.disabled = true;
+  supportSubmit.textContent = "Sending…";
+
+  try {
+    const response = await fetch(`${SHARED_PUBLIC_API}/support-request`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: supportName.value,
+        email: supportEmail.value,
+        topic: supportTopic.value,
+        message: supportMessage.value,
+        source: "aima-support",
+        pageUrl: window.location.href,
+        origin: window.location.origin,
+      }),
+    });
+
+    const payload = await response.json();
+    if (!response.ok) {
+      throw new Error(payload?.error || "Failed to submit support request");
+    }
+
+    supportForm.reset();
+    supportFormStatus.textContent = "Support request sent. The team can now triage it from the shared inbox.";
+    supportFormStatus.classList.add("is-success");
+  } catch (error) {
+    supportFormStatus.textContent = error instanceof Error ? error.message : "Unable to send your support request.";
+    supportFormStatus.classList.add("is-error");
+  } finally {
+    supportSubmit.disabled = false;
+    supportSubmit.textContent = "Send support request";
+  }
+}
+
 async function init() {
   try {
     const response = await fetch("/data.json");
@@ -164,6 +246,7 @@ async function init() {
 
     renderChips(categories);
     renderRoute();
+    loadSharedSettings();
 
     searchInput.addEventListener("input", (event) => {
       if (getRequestedArticleId()) {
@@ -184,6 +267,10 @@ async function init() {
       window.history.pushState({}, "", "/");
       renderRoute();
     });
+
+    if (supportForm) {
+      supportForm.addEventListener("submit", handleSupportSubmit);
+    }
 
     window.addEventListener("popstate", renderRoute);
   } catch (error) {
