@@ -1,30 +1,24 @@
-import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, rm } from "node:fs/promises";
 import path from "node:path";
 
 const root = process.cwd();
 const distDir = path.join(root, "dist");
 
+async function copyIfPresent(file) {
+  await cp(path.join(root, file), path.join(distDir, file), { force: true });
+}
+
 async function main() {
   await rm(distDir, { recursive: true, force: true });
-  await mkdir(path.join(distDir, "articles"), { recursive: true });
+  await mkdir(distDir, { recursive: true });
 
-  const staticFiles = ["index.html", "styles.css", "app.js", "data.json"];
+  const staticFiles = ["index.html", "styles.css", "app.js", "favicon.ico", "logo.png", "robots.txt", "sitemap.xml"];
 
   for (const file of staticFiles) {
-    await cp(path.join(root, file), path.join(distDir, file));
+    await copyIfPresent(file);
   }
 
-  const articleHtml = await readFile(path.join(root, "index.html"), "utf8");
-  const supportData = JSON.parse(await readFile(path.join(root, "data.json"), "utf8"));
-  const articles = supportData.categories.flatMap((category) => category.articles);
-
-  for (const article of articles) {
-    const articleDir = path.join(distDir, "articles", article.id);
-    await mkdir(articleDir, { recursive: true });
-    await writeFile(path.join(articleDir, "index.html"), articleHtml, "utf8");
-  }
-
-  console.log(`Built support site with ${articles.length} article routes.`);
+  console.log("Built support site shell for shared CMS-driven content.");
 }
 
 main().catch((error) => {
