@@ -1,54 +1,95 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>EVA Help Center</title>
-    <meta name="description" content="Find answers to EVA account, spending, statements, and troubleshooting questions." />
+    <title>AIMA Help Center</title>
+    <meta name="description" content="Official help center for EVA and Universal Transaction Gateway with search, support articles, and direct support contact." />
+    <link rel="icon" href="/favicon.ico" />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <header class="hero">
       <div class="hero__content">
-        <p class="hero__eyebrow">EVA Support</p>
-        <h1 class="hero__title">Help Center</h1>
-        <p class="hero__subtitle">Clear, practical guidance for every part of your EVA experience.</p>
+        <div class="hero__topbar">
+          <p class="hero__eyebrow">AIMA Help Center</p>
+          <div class="hero__links">
+            <a href="https://useaima.com">Main site</a>
+            <a href="https://blog.useaima.com">Blog</a>
+            <a href="https://eva.useaima.com">Open EVA</a>
+            <a href="https://utg.useaima.com">Open UTG</a>
+          </div>
+        </div>
+        <h1 class="hero__title">Search-first support for EVA and Universal Transaction Gateway</h1>
+        <p class="hero__subtitle">
+          Find setup help, onboarding guidance, troubleshooting answers, and direct contact paths across the AIMA platform.
+        </p>
         <div class="hero__search">
-          <input id="search" type="search" placeholder="Search for help articles" aria-label="Search help articles" />
+          <input id="search" type="search" placeholder="Search help articles, setup, billing, approvals, UTG, EVA…" aria-label="Search help articles" />
           <button id="clearSearch" type="button">Clear</button>
         </div>
-        <p class="hero__tip" id="supportEmailTip">Need direct help? Email support@useaima.com and include your EVA account email.</p>
+        <p class="hero__tip" id="supportEmailTip">Need direct help? Email help@useaima.com and include enough context for the team to help quickly.</p>
       </div>
     </header>
 
     <main class="container">
+      <section class="product-strip" id="productStrip" aria-labelledby="productStripTitle">
+        <div class="section-heading">
+          <div>
+            <p class="section-heading__eyebrow">Products</p>
+            <h2 id="productStripTitle">Choose the product you need help with</h2>
+          </div>
+        </div>
+        <div id="productCards" class="product-grid"></div>
+      </section>
+
       <section class="status" id="directoryShell">
         <div>
+          <p class="section-heading__eyebrow">Top collections</p>
           <h2>Popular topics</h2>
-          <p>Quick links to the most common questions from EVA users.</p>
+          <p>Start with the product collection that matches your issue, then drill into specific articles.</p>
         </div>
         <div class="status__chips" id="topicChips"></div>
       </section>
 
       <section class="results" id="directoryView">
         <div class="results__header">
-          <h2>Browse all help articles</h2>
+          <div>
+            <p class="section-heading__eyebrow">Knowledge base</p>
+            <h2 id="directoryTitle">Browse support collections</h2>
+          </div>
           <p id="resultsCount">Loading support content...</p>
         </div>
-        <div id="categories" class="category-grid"></div>
+        <div id="collections" class="collection-grid"></div>
+      </section>
+
+      <section class="results" id="articleDirectoryView">
+        <div class="results__header">
+          <div>
+            <p class="section-heading__eyebrow">Articles</p>
+            <h2 id="articleDirectoryTitle">Featured support articles</h2>
+          </div>
+          <p id="articleResultsCount">Loading articles...</p>
+        </div>
+        <div id="articles" class="article-grid"></div>
       </section>
 
       <section class="article-view is-hidden" id="articleView">
-        <button id="backToDirectory" class="back-link" type="button">← Back to all help articles</button>
+        <button id="backToDirectory" class="back-link" type="button">← Back to help center</button>
+        <nav id="articleBreadcrumbs" class="breadcrumbs" aria-label="Breadcrumb"></nav>
         <p class="article-view__eyebrow" id="articleCategory"></p>
         <h2 id="articleTitle"></h2>
         <p class="article-view__summary" id="articleSummary"></p>
-        <article class="article-surface">
-          <p id="articleAnswer"></p>
-        </article>
-        <div class="article-links">
-          <a href="https://eva.useaima.com">Open EVA</a>
-          <a href="mailto:support@useaima.com">Contact support</a>
+        <article class="article-surface" id="articleAnswer"></article>
+        <div class="article-links" id="articleActions"></div>
+        <div class="related-block">
+          <div class="section-heading">
+            <div>
+              <p class="section-heading__eyebrow">Next help articles</p>
+              <h3>Related guidance</h3>
+            </div>
+          </div>
+          <div id="relatedArticles" class="article-grid"></div>
         </div>
       </section>
 
@@ -89,13 +130,13 @@
 
     <footer class="footer">
       <div>
-        <strong>EVA Support</strong>
+        <strong>AIMA Help Center</strong>
         <p>support.useaima.com</p>
       </div>
       <div class="footer__links">
-        <a href="https://eva.useaima.com/terms">Terms</a>
-        <a href="https://eva.useaima.com/privacy">Privacy</a>
-        <a href="https://eva.useaima.com/install">Install EVA</a>
+        <a href="https://useaima.com/about">About</a>
+        <a href="https://useaima.com/privacy-policy">Privacy</a>
+        <a href="https://useaima.com/terms-of-service">Terms</a>
       </div>
     </footer>
 
