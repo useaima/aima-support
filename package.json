@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx http-server -p 3000 -o",
     "build": "node build.mjs",
-    "start": "npx http-server"
+    "start": "npx http-server",
+    "verify:shell": "node scripts/verify-support-shell.mjs"
   },
   "keywords": [
     "support",
