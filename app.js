@@ -53,10 +53,10 @@ const fallbackPlatform = {
     },
     {
       slug: "utg",
-      name: "Universal Transaction Gateway",
+      name: "Orbis",
       summary: "Experimental gateway for agentic commerce with human approval, idempotency, and non-custodial execution boundaries.",
       primaryUrl: "https://utg.useaima.com",
-      primaryLabel: "Open UTG",
+      primaryLabel: "Open Orbis",
       secondaryUrl: "https://github.com/useaima/universal-gateway",
       secondaryLabel: "View GitHub",
       categoryLabel: "Agentic Commerce Infrastructure",
@@ -84,8 +84,8 @@ const fallbackSupportIndex = {
     },
     {
       slug: "utg-overview",
-      title: "UTG basics and onboarding",
-      description: "What UTG is, how onboarding works, and where to start with the gateway safely.",
+      title: "Orbis basics and onboarding",
+      description: "What Orbis (UTG) is, how onboarding works, and where to start with the gateway safely.",
       productSlug: "utg",
       featured: true,
       articleCount: 2,
@@ -93,7 +93,7 @@ const fallbackSupportIndex = {
     {
       slug: "utg-approvals-safety",
       title: "Approvals, safety, and control",
-      description: "Human approval, idempotency, and why UTG treats transaction safety as infrastructure.",
+      description: "Human approval, idempotency, and why Orbis treats transaction safety as infrastructure.",
       productSlug: "utg",
       featured: true,
       articleCount: 2,
@@ -138,50 +138,50 @@ Start with the summary layer, check which categories moved more than expected, a
     },
     {
       slug: "what-is-universal-transaction-gateway",
-      title: "What is Universal Transaction Gateway (UTG)?",
-      summary: "UTG is AIMA's safety boundary between an agent's transaction intent and real money movement.",
-      body: `# What is Universal Transaction Gateway (UTG)?
+      title: "What is Orbis (UTG)?",
+      summary: "Orbis is AIMA's safety boundary between an agent's transaction intent and real money movement.",
+      body: `# What is Orbis (UTG)?
 
-UTG is AIMA's experimental settlement and control layer for AI agents. Instead of letting a model spend directly, the gateway captures intent, applies policy, records the action, and pauses execution until the human owner approves the transaction. It is designed for safer agentic commerce, not raw autonomous spending.`,
+Orbis is AIMA's experimental settlement and control layer for AI agents. Instead of letting a model spend directly, the gateway captures intent, applies policy, records the action, and pauses execution until the human owner approves the transaction. It is designed for safer agentic commerce, not raw autonomous spending.`,
       productSlug: "utg",
       collectionSlug: "utg-overview",
-      keywords: ["utg", "universal transaction gateway", "agentic commerce"],
+      keywords: ["orbis", "utg", "universal transaction gateway", "agentic commerce"],
       relatedSlugs: ["utg-human-approval-flow", "utg-installation-and-onboarding"],
     },
     {
       slug: "utg-installation-and-onboarding",
-      title: "How do I install and onboard UTG?",
+      title: "How do I install and onboard Orbis?",
       summary: "Install the gateway, run onboarding, verify the runtime, then connect it to your agent workflow.",
-      body: `# How do I install and onboard UTG?
+      body: `# How do I install and onboard Orbis?
 
-Start with the official UTG docs or GitHub repository. Install the project, run the onboarding flow, and only then connect the generated configuration to your agent environment. The safe rollout is always install, onboard, verify, then connect to real workflows in a controlled way.`,
+Start with the official Orbis docs or GitHub repository. Install the project, run the onboarding flow, and only then connect the generated configuration to your agent environment. The safe rollout is always install, onboard, verify, then connect to real workflows in a controlled way.`,
       productSlug: "utg",
       collectionSlug: "utg-overview",
-      keywords: ["utg", "installation", "onboarding"],
+      keywords: ["orbis", "utg", "installation", "onboarding"],
       relatedSlugs: ["what-is-universal-transaction-gateway", "utg-human-approval-flow"],
     },
     {
       slug: "utg-human-approval-flow",
-      title: "How does the human approval flow work in UTG?",
-      summary: "UTG records the requested transaction and halts execution until the human owner clears it.",
-      body: `# How does the human approval flow work in UTG?
+      title: "How does the human approval flow work in Orbis?",
+      summary: "Orbis records the requested transaction and halts execution until the human owner clears it.",
+      body: `# How does the human approval flow work in Orbis?
 
-UTG is built around strict human-in-the-loop execution. When an agent requests a transaction, the gateway records the intent and stops before settlement. The human owner remains the final authority over whether money moves, which makes the approval step infrastructure rather than a cosmetic confirmation screen.`,
+Orbis is built around strict human-in-the-loop execution. When an agent requests a transaction, the gateway records the intent and stops before settlement. The human owner remains the final authority over whether money moves, which makes the approval step infrastructure rather than a cosmetic confirmation screen.`,
       productSlug: "utg",
       collectionSlug: "utg-approvals-safety",
-      keywords: ["utg", "human approval", "HITL"],
+      keywords: ["orbis", "utg", "human approval", "HITL"],
       relatedSlugs: ["utg-why-idempotency-matters", "what-is-universal-transaction-gateway"],
     },
     {
       slug: "utg-why-idempotency-matters",
-      title: "Why does UTG emphasize idempotency?",
+      title: "Why does Orbis emphasize idempotency?",
       summary: "Idempotency keeps retries from becoming duplicate financial harm when networks or agents behave unpredictably.",
-      body: `# Why does UTG emphasize idempotency?
+      body: `# Why does Orbis emphasize idempotency?
 
-Financial infrastructure needs to assume retries, partial failures, and ambiguous network responses. UTG tracks requests as logical operations so repeated attempts are treated as the same execution unit instead of permission to spend twice. That is one of the clearest signals that the gateway is designed for real transaction safety, not superficial automation demos.`,
+Financial infrastructure needs to assume retries, partial failures, and ambiguous network responses. Orbis tracks requests as logical operations so repeated attempts are treated as the same execution unit instead of permission to spend twice. That is one of the clearest signals that the gateway is designed for real transaction safety, not superficial automation demos.`,
       productSlug: "utg",
       collectionSlug: "utg-approvals-safety",
-      keywords: ["utg", "idempotency", "transaction safety"],
+      keywords: ["orbis", "utg", "idempotency", "transaction safety"],
       relatedSlugs: ["utg-human-approval-flow", "utg-installation-and-onboarding"],
     },
   ],
@@ -263,7 +263,7 @@ function flattenArticles() {
       ...article,
       collectionTitle: collection?.title || article.collectionSlug,
       collectionDescription: collection?.description || "",
-      productName: article.productSlug === "utg" ? "Universal Transaction Gateway" : "eva",
+      productName: article.productSlug === "utg" ? "Orbis" : "eva",
     };
   });
 }
@@ -336,7 +336,7 @@ function createCollectionCard(collection) {
 
   const eyebrow = document.createElement("p");
   eyebrow.className = "collection-card__eyebrow";
-  eyebrow.textContent = collection.productSlug === "utg" ? "UTG" : "EVA";
+  eyebrow.textContent = collection.productSlug === "utg" ? "Orbis" : "EVA";
 
   const title = document.createElement("h3");
   title.textContent = collection.title;
@@ -415,7 +415,7 @@ function renderDirectory(query = "", collectionSlug = null) {
       body: "",
       collectionTitle: collection.title,
       collectionDescription: collection.description,
-      productName: collection.productSlug === "utg" ? "Universal Transaction Gateway" : "eva",
+      productName: collection.productSlug === "utg" ? "Orbis" : "eva",
       keywords: [],
     }, query);
   });
@@ -493,8 +493,8 @@ function renderArticlePage(article) {
   ]);
 
   articleActions.innerHTML = `
-    <a href="${article.productSlug === "utg" ? platform.settings.utgUrl : platform.settings.evaUrl}" target="_blank" rel="noopener noreferrer">Open ${article.productSlug === "utg" ? "UTG" : "EVA"}</a>
-    ${article.productSlug === "utg" ? `<a href="${platform.settings.utgRepoUrl}" target="_blank" rel="noopener noreferrer">View UTG GitHub</a>` : ""}
+    <a href="${article.productSlug === "utg" ? platform.settings.utgUrl : platform.settings.evaUrl}" target="_blank" rel="noopener noreferrer">Open ${article.productSlug === "utg" ? "Orbis" : "EVA"}</a>
+    ${article.productSlug === "utg" ? `<a href="${platform.settings.utgRepoUrl}" target="_blank" rel="noopener noreferrer">View Orbis GitHub</a>` : ""}
     <a href="mailto:${platform.settings.supportEmail}">Email support</a>
   `;
 
